@@ -5,8 +5,8 @@ const fastify = Fastify({
 	logger: true
 });
 
-const ADDRESS = process.env.ADDRESS;
-const PORT = process.env.PORT;
+const ADDRESS = process.env.LISTEN_ADDRESS;
+const PORT = process.env.LISTEN_PORT;
 
 // Registering routes from routes.js
 fastify.register(routes);
