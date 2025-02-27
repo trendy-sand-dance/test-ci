@@ -1,10 +1,14 @@
 services:
   fastify-app:
-    build: ./fastify-docker
+    build: ./fastify
+    environment:
+      LISTEN_PORT: 3000
+      LISTEN_ADDRESS: '0.0.0.0'
     ports:
       - "8000:3000"
     volumes:
-      - ./fastify-docker:/app  # Mount local project folder into the container
+      - ./fastify:/app  # Mount local project folder into the container
       - /app/node_modules  # Prevent overwriting node_modules
-    working_dir: /app
-    command: npm run dev  # Run with hot reload
+    # working_dir: /app
+    # command: npm run dev  # Run with hot reload
+
