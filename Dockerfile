@@ -1,13 +1,14 @@
+# This file is currently just the dev file, we should have some mekanism that allows us the specify the build type.
 FROM node:22-slim AS build-stage
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY src/package.json src/package-lock.json ./
 
-RUN npm install && npm install -g nodemon
+RUN npm install -D
 
 
-COPY . .
+COPY src/ .
 
 
 ARG LISTEN_ADDRESS
@@ -15,7 +16,6 @@ ARG LISTEN_PORT
 
 ENV LISTEN_ADDRESS=${LISTEN_ADDRESS}
 ENV LISTEN_PORT=${LISTEN_PORT}
-
 
 
 EXPOSE ${LISTEN_PORT}
