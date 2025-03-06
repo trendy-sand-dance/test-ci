@@ -7,7 +7,14 @@ const fastify = Fastify({
 
 const ADDRESS = process.env.LISTEN_ADDRESS;
 const PORT = process.env.LISTEN_PORT;
+const STR = process.env.TEST_STR;
 
+console.log("port: ");
+console.log(PORT);
+console.log("addr: ");
+console.log(ADDRESS);
+console.log("teststr: ");
+console.log(STR);
 // Registering routes from routes.js
 fastify.register(routes);
 
